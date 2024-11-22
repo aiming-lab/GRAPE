@@ -11,15 +11,6 @@
 
 <hr style="border: 2px solid gray;"></hr>
 
-## Latest Updates
-- [2024-10-15] Added a [VLA Performance Troubleshooting](#vla-performance-troubleshooting) section to the README with best practices for debugging poor VLA performance after fine-tuning.
-- [2024-09-04] Added LIBERO simulation benchmark fine-tuning experiments to paper (see v2 on [arXiv](https://arxiv.org/abs/2406.09246));
-  added instructions for reproducing OpenVLA results in [LIBERO Simulation Benchmark Evaluations](#libero-simulation-benchmark-evaluations) section
-- [2024-08-14] Added new section, [Evaluating OpenVLA](#evaluating-openvla), with instructions for running BridgeData V2 WidowX robot evals
-- [2024-07-08] Added new sections: [Fine-Tuning OpenVLA via LoRA](#fine-tuning-openvla-via-lora), [Fully Fine-Tuning OpenVLA](#fully-fine-tuning-openvla)
-- [2024-06-13] Initial release
-
-<hr style="border: 2px solid gray;"></hr>
 
 A simple and scalable codebase for training and fine-tuning vision-language-action models (VLAs) for generalist robotic 
 manipulation:
