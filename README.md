@@ -80,6 +80,13 @@ To LoRA fine-tune on a different dataset, you can download the dataset from our 
 
 ---
 
+##Evaluating GRAPE
+
+We support two evaluation benchmarks in simulation environments: Simpler-Env and LIBERO
+
+###Simpler-Env
+
+###LIBERO
 
 
 #### Citation
