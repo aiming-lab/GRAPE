@@ -11,11 +11,7 @@
 
 <hr style="border: 2px solid gray;"></hr>
 
-
-A simple and scalable codebase for Trajectory-wise DPO() vision-language-action models (VLAs) for generalist robotic 
-
-We introduce **T**rajectory-wise **P**reference **O**ptimization (TPO) to align VLA policies on a trajectory level by implicitly modeling reward from both successful and failure trials, boosting generalizability to diverse tasks. 
-manipulation:
+We release codebase of GRAPE framework, including 
 
 - **Different Dataset Mixtures**: We natively support arbitrary datasets in RLDS format, including arbitrary mixtures of
   data from the [Open X-Embodiment Dataset](https://robotics-transformer-x.github.io/).
@@ -24,68 +20,10 @@ manipulation:
 - **Native Fine-Tuning Support**: Built-in support (with examples) for various forms of fine-tuning (full, 
   partial, LoRA).
 
-Built on top of [Prismatic VLMs](https://github.com/TRI-ML/prismatic-vlms).
+Built on top of OpenVLA(https://github.com/openvla/openvla).
 
-## Getting Started
-
-To get started with loading and running OpenVLA models for inference, we provide a lightweight interface that leverages
-HuggingFace `transformers` AutoClasses, with minimal dependencies.
-
-For example, to load `openvla-7b` for zero-shot instruction following in the
-[BridgeData V2 environments](https://rail-berkeley.github.io/bridgedata/) with a WidowX robot:
-
-```python
-# Install minimal dependencies (`torch`, `transformers`, `timm`, `tokenizers`, ...)
-# > pip install -r https://raw.githubusercontent.com/openvla/openvla/main/requirements-min.txt
-from transformers import AutoModelForVision2Seq, AutoProcessor
-from PIL import Image
-
-import torch
-
-# Load Processor & VLA
-processor = AutoProcessor.from_pretrained("openvla/openvla-7b", trust_remote_code=True)
-vla = AutoModelForVision2Seq.from_pretrained(
-    "openvla/openvla-7b", 
-    attn_implementation="flash_attention_2",  # [Optional] Requires `flash_attn`
-    torch_dtype=torch.bfloat16, 
-    low_cpu_mem_usage=True, 
-    trust_remote_code=True
-).to("cuda:0")
-
-# Grab image input & format prompt
-image: Image.Image = get_from_camera(...)
-prompt = "In: What action should the robot take to {<INSTRUCTION>}?\nOut:"
-
-# Predict Action (7-DoF; un-normalize for BridgeData V2)
-inputs = processor(prompt, image).to("cuda:0", dtype=torch.bfloat16)
-action = vla.predict_action(**inputs, unnorm_key="bridge_orig", do_sample=False)
-
-# Execute...
-robot.act(action, ...)
-```
-
-We also provide an [example script for fine-tuning OpenVLA models for new tasks and 
-embodiments](./vla-scripts/finetune.py); this script supports different fine-tuning modes -- including (quantized) 
-low-rank adaptation (LoRA) supported by [HuggingFace's PEFT library](https://huggingface.co/docs/peft/en/index). 
-
-
-
-
----
 
 ## Installation
-
-> **Note**: These installation instructions are for full-scale pretraining (and distributed fine-tuning); if looking to
-  just run inference with OpenVLA models (or perform lightweight fine-tuning), see instructions above!
-
-This repository was built using Python 3.10, but should be backwards compatible with any Python >= 3.8. We require
-PyTorch 2.2.* -- installation instructions [can be found here](https://pytorch.org/get-started/locally/). The latest 
-version of this repository was developed and thoroughly tested with:
-  - PyTorch 2.2.0, torchvision 0.17.0, transformers 4.40.1, tokenizers 0.19.1, timm 0.9.10, and flash-attn 2.5.5
-
-**[5/21/24] Note**: Following reported regressions and breaking changes in later versions of `transformers`, `timm`, and
-`tokenizers` we explicitly pin the above versions of the dependencies. We are working on implementing thorough tests, 
-and plan on relaxing these constraints as soon as we can.
 
 Use the setup commands below to get started:
 
@@ -113,13 +51,7 @@ pip install "flash-attn==2.5.5" --no-build-isolation
 
 If you run into any problems during the installation process, please file a GitHub Issue.
 
-**Note:** See `vla-scripts/` for full training and verification scripts for OpenVLA models. Note that `scripts/` is
-mostly a holdover from the original (base) `prismatic-vlms` repository, with support for training and evaluating
-visually-conditioned language models; while you can use this repo to train VLMs AND VLAs, note that trying to generate
-language (via `scripts/generate.py`) with existing OpenVLA models will not work (as we only train current OpenVLA models
-to generate actions, and actions alone).
-
-## Fine-Tuning OpenVLA via LoRA
+## Training OpenVLA model via Trajectory-wise Preference Optimization(TPO)
 
 In this section, we discuss fine-tuning OpenVLA using Low-Rank Adaptation (LoRA) via the Hugging Face `transformers` library,
 which is recommended if you do not have sufficient compute to fully fine-tune a 7B-parameter model. The main script for LoRA
