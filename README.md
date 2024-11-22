@@ -30,13 +30,9 @@ Use the setup commands below to get started:
 # Create and activate conda environment
 conda create -n GRAPE python=3.10 -y
 conda activate GRAPE
+conda install pytorch torchvision torchaudio pytorch-cuda=12.4 -c pytorch -c nvidia -y  
 
-# Install PyTorch. Below is a sample command to do this, but you should check the following link
-# to find installation instructions that are specific to your compute platform:
-# https://pytorch.org/get-started/locally/
-conda install pytorch torchvision torchaudio pytorch-cuda=12.4 -c pytorch -c nvidia -y  # UPDATE ME!
-
-# Clone and install the openvla repo
+# Clone and install the modified openvla repo
 git clone https://github.com/zzj1111/Openvla-GRAPE.git
 cd Openvla-GRAPE
 pip install -e .
