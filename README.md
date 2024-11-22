@@ -13,11 +13,11 @@
 
 We release codebase of GRAPE framework, including 
 
-- **Different Dataset Mixtures**: We natively support arbitrary datasets in RLDS format, including arbitrary mixtures of
+- **Customized Cost Generation**: We natively support arbitrary datasets in RLDS format, including arbitrary mixtures of
   data from the [Open X-Embodiment Dataset](https://robotics-transformer-x.github.io/).
-- **Easy Scaling**: Powered by PyTorch FSDP and Flash-Attention, we can quickly and efficiently train models from 1B - 
+- **Iterative Trajectory-wise Preference Optimization**: Powered by PyTorch FSDP and Flash-Attention, we can quickly and efficiently train models from 1B - 
   34B parameters, with easily adaptable model architectures.
-- **Native Fine-Tuning Support**: Built-in support (with examples) for various forms of fine-tuning (full, 
+- **Model evaluation**: Built-in support (with examples) for various forms of fine-tuning (full, 
   partial, LoRA).
 
 Built on top of OpenVLA(https://github.com/openvla/openvla).
