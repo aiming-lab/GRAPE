@@ -5,7 +5,7 @@
 [![Python](https://img.shields.io/badge/python-3.10-blue?style=for-the-badge)](https://www.python.org)
 [![License](https://img.shields.io/github/license/TRI-ML/prismatic-vlms?style=for-the-badge)](LICENSE)
  
-[**Installation**](#installation) | [**Training VLA via TPO-LoRA**](#training-vla-via-tpo-lora) | [**Evaluating GRAPE**](#evaluating-grape) | [**Project Website**](https://openvla.github.io/)
+[**Installation**](#installation) | [**Training VLA model via TPO-LoRA**](#training-vla-model-via-tpo-lora) | [**Evaluating GRAPE**](#evaluating-grape) | [**Project Website**](https://openvla.github.io/)
 
 
 <hr style="border: 2px solid gray;"></hr>
@@ -48,10 +48,9 @@ If you run into any problems during the installation process, please file a GitH
 
 ---
 
-## Training OpenVLA model via Trajectory-wise Preference Optimization(TPO)
+## Training VLA model via TPO-LoRA
 
-In this section, we discuss training OpenVLA model via Trajectory-wise Preference Optimization(TPO), 
-which is recommended if you do not have sufficient compute to fully TPO a 7B-parameter model. The main script for LoRA
+In this section, we discuss training OpenVLA model via Trajectory-wise Preference Optimization(TPO). The main script for LoRA
 training is `finetune.py`. 
 
 Below we show an example of how you can train the main OpenVLA-SFT checkpoint ([`openvla-7b`](https://huggingface.co/openvla/openvla-7b))
