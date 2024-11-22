@@ -81,11 +81,81 @@ To LoRA fine-tune on a different dataset, you can download the dataset from our 
 
 ## Evaluating GRAPE
 
-We support two evaluation benchmarks in simulation environments: Simpler-Env and LIBERO
+We support two evaluation benchmarks in simulation environments: **Simpler-Env** and **LIBERO**
+
 
 ### Simpler-Env
+#### Simpler-Env Setup
+Clone and install the [LIBERO repo](https://github.com/Lifelong-Robot-Learning/LIBERO):
+
 
 ### LIBERO
+#### LIBERO Setup
+Clone and install the [LIBERO repo](https://github.com/Lifelong-Robot-Learning/LIBERO):
+
+```bash
+git clone https://github.com/Lifelong-Robot-Learning/LIBERO.git
+cd LIBERO
+pip install -e .
+```
+
+Additionally, install other required packages:
+```bash
+cd openvla
+pip install -r experiments/robot/libero/libero_requirements.txt
+```
+
+(Optional) To download the modified versions of the LIBERO datasets that we used in our fine-tuning
+experiments, run the command below. This will download the LIBERO-Spatial, LIBERO-Object, LIBERO-Goal,
+and LIBERO-10 datasets in RLDS data format (~10 GB total). You can use these to fine-tune OpenVLA or
+train other methods. This step is optional since we provide pretrained OpenVLA checkpoints below.
+(Also, you can find the script we used to generate the modified datasets in raw HDF5 format
+[here](experiments/robot/libero/regenerate_libero_dataset.py) and the code we used to convert these
+datasets to the RLDS format [here](https://github.com/moojink/rlds_dataset_builder).)
+```bash
+git clone git@hf.co:datasets/openvla/modified_libero_rlds
+```
+
+#### Launching LIBERO Evaluations
+
+We fine-tuned OpenVLA via LoRA (r=32) on four LIBERO task suites independently: LIBERO-Spatial, LIBERO-Object, LIBERO-Goal, and LIBERO-10 (also called LIBERO-Long).
+The four checkpoints are available on Hugging Face:
+* [openvla/openvla-7b-finetuned-libero-spatial](https://huggingface.co/openvla/openvla-7b-finetuned-libero-spatial)
+* [openvla/openvla-7b-finetuned-libero-object](https://huggingface.co/openvla/openvla-7b-finetuned-libero-object)
+* [openvla/openvla-7b-finetuned-libero-goal](https://huggingface.co/openvla/openvla-7b-finetuned-libero-goal)
+* [openvla/openvla-7b-finetuned-libero-10](https://huggingface.co/openvla/openvla-7b-finetuned-libero-10)
+
+To start evaluation with one of these checkpoints, run one of the commands below. Each will automatically download the appropriate checkpoint listed above.
+
+```bash
+# Launch LIBERO-Spatial evals
+python experiments/robot/libero/run_libero_eval.py \
+  --model_family openvla \
+  --pretrained_checkpoint openvla/openvla-7b-finetuned-libero-spatial \
+  --task_suite_name libero_spatial \
+  --center_crop True
+
+# Launch LIBERO-Object evals
+python experiments/robot/libero/run_libero_eval.py \
+  --model_family openvla \
+  --pretrained_checkpoint openvla/openvla-7b-finetuned-libero-object \
+  --task_suite_name libero_object \
+  --center_crop True
+
+# Launch LIBERO-Goal evals
+python experiments/robot/libero/run_libero_eval.py \
+  --model_family openvla \
+  --pretrained_checkpoint openvla/openvla-7b-finetuned-libero-goal \
+  --task_suite_name libero_goal \
+  --center_crop True
+
+# Launch LIBERO-10 (LIBERO-Long) evals
+python experiments/robot/libero/run_libero_eval.py \
+  --model_family openvla \
+  --pretrained_checkpoint openvla/openvla-7b-finetuned-libero-10 \
+  --task_suite_name libero_10 \
+  --center_crop True
+```
 
 
 #### Citation
