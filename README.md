@@ -29,8 +29,8 @@ Use the setup commands below to get started:
 
 ```bash
 # Create and activate conda environment
-conda create -n openvla python=3.10 -y
-conda activate openvla
+conda create -n GRAPE python=3.10 -y
+conda activate GRAPE
 
 # Install PyTorch. Below is a sample command to do this, but you should check the following link
 # to find installation instructions that are specific to your compute platform:
