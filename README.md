@@ -78,15 +78,14 @@ Now, launch the LoRA TPO script, as shown below.
 
 To LoRA fine-tune on a different dataset, you can download the dataset from our repo(URL TBD).
 
----
 
-##Evaluating GRAPE
+## Evaluating GRAPE
 
 We support two evaluation benchmarks in simulation environments: Simpler-Env and LIBERO
 
-###Simpler-Env
+### Simpler-Env
 
-###LIBERO
+### LIBERO
 
 
 #### Citation
