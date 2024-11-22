@@ -20,7 +20,7 @@ We release the codebase for the **GRAPE** framework, which includes the followin
   **GRAPE** enhances the capabilities of Vision-Language-Action (VLA) models through TPO. Our iterative framework enables further refinement and improvement of VLA models over multiple training cycles.
 
 - **Model Evaluation**:  
-  Comprehensive evaluation of the GRAPE framework is supported on two benchmarks: **Simpler-Env** and **LIBERO**, providing rigorous testing for generalizability and performance.
+  Comprehensive evaluation of the **GRAPE** framework is supported on two benchmarks: **Simpler-Env** and **LIBERO**, providing rigorous testing for generalizability and performance.
 
 
 Built on top of OpenVLA(https://github.com/openvla/openvla).
