@@ -13,7 +13,8 @@
 
 
 A simple and scalable codebase for Trajectory-wise DPO() vision-language-action models (VLAs) for generalist robotic 
-We introduce \textit{trajectory-wise preference optimization} (TPO) to align VLA policies on a trajectory level by implicitly modeling reward from both successful and failure trials, boosting generalizability to diverse tasks. 
+
+We introduce **T**rajectory-wise **P**reference **O**ptimization (TPO) to align VLA policies on a trajectory level by implicitly modeling reward from both successful and failure trials, boosting generalizability to diverse tasks. 
 manipulation:
 
 - **Different Dataset Mixtures**: We natively support arbitrary datasets in RLDS format, including arbitrary mixtures of
