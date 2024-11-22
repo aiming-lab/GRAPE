@@ -11,14 +11,17 @@
 
 <hr style="border: 2px solid gray;"></hr>
 
-We release codebase of GRAPE framework, including 
+We release the codebase for the **GRAPE** framework, which includes the following components:
 
-- **Customized Cost Generation**: We natively support arbitrary datasets in RLDS format, including arbitrary mixtures of
-  data from the [Open X-Embodiment Dataset](https://robotics-transformer-x.github.io/).
-- **Iterative Trajectory-wise Preference Optimization**: Powered by PyTorch FSDP and Flash-Attention, we can quickly and efficiently train models from 1B - 
-  34B parameters, with easily adaptable model architectures.
-- **Model evaluation**: Built-in support (with examples) for various forms of fine-tuning (full, 
-  partial, LoRA).
+- **Customized Cost Generation**:  
+  **GRAPE** decomposes complex manipulation tasks into multiple independent stages and leverages Vision-Language Models (VLMs) to generate relevant constraints for each stage.
+
+- **Iterative Trajectory-wise Preference Optimization (TPO)**:  
+  **GRAPE** enhances the capabilities of Vision-Language-Action (VLA) models through TPO. Our iterative framework enables further refinement and improvement of VLA models over multiple training cycles.
+
+- **Model Evaluation**:  
+  Comprehensive evaluation of the GRAPE framework is supported on two benchmarks: **Simpler-Env** and **LIBERO**, providing rigorous testing for generalizability and performance.
+
 
 Built on top of OpenVLA(https://github.com/openvla/openvla).
 
