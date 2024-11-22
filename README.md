@@ -12,14 +12,11 @@
 
 We release the codebase for the **GRAPE** framework, which includes the following components:
 
-- **Customized Cost Generation**:  
-  **GRAPE** decomposes complex manipulation tasks into multiple independent stages and leverages Vision-Language Models (VLMs) to generate relevant constraints for each stage.
+- **Customized Cost Generation**:  **GRAPE** decomposes complex manipulation tasks into multiple independent stages and leverages Vision-Language Models (VLMs) to generate relevant constraints for each stage.
 
-- **Iterative Trajectory-wise Preference Optimization (TPO)**:  
-  **GRAPE** enhances the capabilities of Vision-Language-Action (VLA) models through TPO. Our iterative framework enables further refinement and improvement of VLA models over multiple training cycles.
+- **Iterative Trajectory-wise Preference Optimization (TPO)**: Our iterative TPO framework enables refinement and improvement of VLA models over multiple training cycles.
 
-- **Model Evaluation**:  
-  Comprehensive evaluation of the **GRAPE** framework is supported on two benchmarks: **Simpler-Env** and **LIBERO**, providing rigorous testing for generalizability and performance.
+- **Model Evaluation**:  Comprehensive evaluation of the **GRAPE** framework is supported on two benchmarks: **Simpler-Env** and **LIBERO**, providing rigorous testing for generalizability and performance.
 
 
 Built on top of OpenVLA(https://github.com/openvla/openvla).
