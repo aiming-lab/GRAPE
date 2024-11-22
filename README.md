@@ -46,6 +46,8 @@ pip install "flash-attn==2.5.5" --no-build-isolation
 
 If you run into any problems during the installation process, please file a GitHub Issue.
 
+---
+
 ## Training OpenVLA model via Trajectory-wise Preference Optimization(TPO)
 
 In this section, we discuss training OpenVLA model via Trajectory-wise Preference Optimization(TPO), 
@@ -77,6 +79,7 @@ Now, launch the LoRA TPO script, as shown below.
 
 To LoRA fine-tune on a different dataset, you can download the dataset from our repo(URL TBD).
 
+---
 
 
 
