@@ -85,7 +85,7 @@ We support two evaluation benchmarks in simulation environments: **Simpler-Env**
 
 ### Simpler-Env
 #### Simpler-Env Setup
-Clone and install the [LIBERO repo](https://github.com/Lifelong-Robot-Learning/LIBERO):
+
 
 
 ### LIBERO
