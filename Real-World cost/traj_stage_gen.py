@@ -199,7 +199,7 @@ if __name__ == '__main__':
     # )
 
 
-    # image = cv2.imread('/home/joel/projects/kaiyuan/GRAPE/dataset/4-1/0.png')
+    # image = cv2.imread('0.png')
     # image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
     # quest = "Pick up the grapes and put it in the black bowl."
