@@ -5,7 +5,7 @@
 [![Python](https://img.shields.io/badge/python-3.10-blue?style=for-the-badge)](https://www.python.org)
 [![License](https://img.shields.io/github/license/TRI-ML/prismatic-vlms?style=for-the-badge)](LICENSE)
  
-[**Installation**](#installation) | [**Training VLA model via TPO-LoRA**](#training-vla-model-via-tpo-lora) | [**Evaluating GRAPE**](#evaluating-grape) | [**Project Website**](https://openvla.github.io/)
+[**Installation**](#installation) | [**Training VLA model via TPO-LoRA**](#training-vla-model-via-tpo-lora) | [**Datasets**](#datasets) | [**Evaluating GRAPE**](#evaluating-grape) | [**Project Website**](https://openvla.github.io/)
 
 
 <hr style="border: 2px solid gray;"></hr>
@@ -75,7 +75,17 @@ Now, launch the LoRA TPO script, as shown below.
   --save_steps 1000
 ```
 
+For details about chosen_traj and rejected_traj, You can refer xxxxxxxx. 
+
 To LoRA fine-tune on a different dataset, you can download the dataset from our repo(URL TBD).
+
+
+
+## Datasets
+
+
+
+
 
 
 ## Evaluating GRAPE
@@ -176,54 +186,37 @@ cd openvla
 pip install -r experiments/robot/libero/libero_requirements.txt
 ```
 
-(Optional) To download the modified versions of the LIBERO datasets that we used in our fine-tuning
-experiments, run the command below. This will download the LIBERO-Spatial, LIBERO-Object, LIBERO-Goal,
-and LIBERO-10 datasets in RLDS data format (~10 GB total). You can use these to fine-tune OpenVLA or
-train other methods. This step is optional since we provide pretrained OpenVLA checkpoints below.
-(Also, you can find the script we used to generate the modified datasets in raw HDF5 format
-[here](experiments/robot/libero/regenerate_libero_dataset.py) and the code we used to convert these
-datasets to the RLDS format [here](https://github.com/moojink/rlds_dataset_builder).)
-```bash
-git clone git@hf.co:datasets/openvla/modified_libero_rlds
-```
 
-#### Launching LIBERO Evaluations
+#### Run LIBERO
 
-We fine-tuned OpenVLA via LoRA (r=32) on four LIBERO task suites independently: LIBERO-Spatial, LIBERO-Object, LIBERO-Goal, and LIBERO-10 (also called LIBERO-Long).
-The four checkpoints are available on Hugging Face:
-* [openvla/openvla-7b-finetuned-libero-spatial](https://huggingface.co/openvla/openvla-7b-finetuned-libero-spatial)
-* [openvla/openvla-7b-finetuned-libero-object](https://huggingface.co/openvla/openvla-7b-finetuned-libero-object)
-* [openvla/openvla-7b-finetuned-libero-goal](https://huggingface.co/openvla/openvla-7b-finetuned-libero-goal)
-* [openvla/openvla-7b-finetuned-libero-10](https://huggingface.co/openvla/openvla-7b-finetuned-libero-10)
-
-To start evaluation with one of these checkpoints, run one of the commands below. Each will automatically download the appropriate checkpoint listed above.
+To start evaluation , run one of the commands below. Each will automatically download the appropriate checkpoint listed above.
 
 ```bash
 # Launch LIBERO-Spatial evals
 python experiments/robot/libero/run_libero_eval.py \
   --model_family openvla \
-  --pretrained_checkpoint openvla/openvla-7b-finetuned-libero-spatial \
+  --pretrained_checkpoint <PATH TO YOUR TPO MODEL> \
   --task_suite_name libero_spatial \
   --center_crop True
 
 # Launch LIBERO-Object evals
 python experiments/robot/libero/run_libero_eval.py \
   --model_family openvla \
-  --pretrained_checkpoint openvla/openvla-7b-finetuned-libero-object \
+  --pretrained_checkpoint <PATH TO YOUR TPO MODEL> \
   --task_suite_name libero_object \
   --center_crop True
 
 # Launch LIBERO-Goal evals
 python experiments/robot/libero/run_libero_eval.py \
   --model_family openvla \
-  --pretrained_checkpoint openvla/openvla-7b-finetuned-libero-goal \
+  --pretrained_checkpoint <PATH TO YOUR TPO MODEL> \
   --task_suite_name libero_goal \
   --center_crop True
 
 # Launch LIBERO-10 (LIBERO-Long) evals
 python experiments/robot/libero/run_libero_eval.py \
   --model_family openvla \
-  --pretrained_checkpoint openvla/openvla-7b-finetuned-libero-10 \
+  --pretrained_checkpoint <PATH TO YOUR TPO MODEL> \
   --task_suite_name libero_10 \
   --center_crop True
 ```
@@ -231,10 +224,10 @@ python experiments/robot/libero/run_libero_eval.py \
 
 #### Citation
 
-If you find our code or models useful in your work, please cite [our paper](https://arxiv.org/abs/2406.09246):
+If you find our code or models useful in your work, please cite [our paper](https://arxiv.org/abs/):
 
 ```bibtex
-@article{kim24openvla,
+@article{zhang24grape,
     title={OpenVLA: An Open-Source Vision-Language-Action Model},
     author={{Moo Jin} Kim and Karl Pertsch and Siddharth Karamcheti and Ted Xiao and Ashwin Balakrishna and Suraj Nair and Rafael Rafailov and Ethan Foster and Grace Lam and Pannag Sanketi and Quan Vuong and Thomas Kollar and Benjamin Burchfiel and Russ Tedrake and Dorsa Sadigh and Sergey Levine and Percy Liang and Chelsea Finn},
     journal = {arXiv preprint arXiv:2406.09246},
