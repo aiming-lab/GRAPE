@@ -75,7 +75,7 @@ Now, launch the LoRA TPO script, as shown below.
   --save_steps 1000
 ```
 
-For details about chosen_traj and rejected_traj, You can refer | [**Datasets**](#datasets) |. 
+For details about chosen_traj and rejected_traj, You can refer  [**Datasets**](#datasets) . 
 
 To LoRA fine-tune on a different dataset, you can download the dataset from our repo(URL TBD).
 
