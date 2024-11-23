@@ -32,9 +32,8 @@ conda create -n GRAPE python=3.10 -y
 conda activate GRAPE
 conda install pytorch torchvision torchaudio pytorch-cuda=12.4 -c pytorch -c nvidia -y  
 
-# Clone and install the modified openvla repo
-git clone https://github.com/zzj1111/Openvla-GRAPE.git
-cd Openvla-GRAPE
+# Install the modified openvla repo
+cd TPO-Train
 pip install -e .
 
 # Install Flash Attention 2 for training (https://github.com/Dao-AILab/flash-attention)
@@ -60,7 +59,7 @@ Now, launch the LoRA TPO script, as shown below.
 
 ```bash
   torchrun --standalone --nnodes=1 --nproc-per-node 1 finetune.py \
-  --vla_path "/data/zhaoyang_wang/projects/OpenVLA/openvla/ckpt/fullmodel" \
+  --vla_path <PATH TO REFERENCE MODEL> \
   --dataset_name "rlds_np_rollout" \
   --chosen_traj_dir <PATH TO CHOSEN TRAJECTORY DATASET> \
   --rejected_traj_dir <PATH TO REJECTED TRAJECTORY DATASET> \
