@@ -86,7 +86,79 @@ We support two evaluation benchmarks in simulation environments: **Simpler-Env**
 ### Simpler-Env
 #### Simpler-Env Setup
 
+Note: We use Colab for our evaluation experiments. Settings in Colab and local GPU may be different. Please feel free to file a Github issue for any problems here.
 
+Use the setup commands below to get started:
+
+```bash
+
+#  Install vulkan for rendering
+apt-get install -yqq --no-install-recommends libvulkan-dev vulkan-tools
+# below fixes some bugs introduced by some recent Colab changes
+mkdir -p /usr/share/vulkan/icd.d
+wget -q -P /usr/share/vulkan/icd.d https://raw.githubusercontent.com/haosulab/ManiSkill/main/docker/nvidia_icd.json
+wget -q -O /usr/share/glvnd/egl_vendor.d/10_nvidia.json https://raw.githubusercontent.com/haosulab/ManiSkill/main/docker/10_nvidia.json
+
+#  Install Real2Sim
+
+pip install numpy==1.24.4
+pip install orbax-checkpoint==0.4.4
+pip install scipy==1.12.0
+pip install keras==2.15.0
+pip install tensorflow==2.15.1
+
+# Install OpenVLA dependency
+
+pip install torch==2.3.1 torchvision==0.18.1 timm==0.9.10 tokenizers==0.15.2 accelerate==0.32.1
+pip install flash-attn==2.6.1 --no-build-isolation
+pip install --quiet tf_agents
+pip install --quiet mediapy
+pip install peft
+
+
+# Install Simpler-Env
+cd Simpler-Env\ManiSkill2_real2sim
+pip install -e .
+cd ..
+pip install -e .
+```
+#### Run Simpler-Env
+
+```bash
+python simpler_env/main_inference.py --policy-model openvla --ckpt-path "/path/to/tpo_model" \
+  --robot widowx --policy-setup widowx_bridge \
+  --control-freq 5 --sim-freq 500 --max-episode-steps 100 \
+  --env-name PutCarrotOnPlateInScene-v0 --scene-name bridge_table_1_v1 \
+  --rgb-overlay-path ./ManiSkill2_real2sim/data/real_inpainting/bridge_real_eval_1.png \
+  --robot-init-x 0.147 0.147 1 --robot-init-y 0.028 0.028 1 --obj-variation-mode episode --obj-episode-range 0 50 \
+  --robot-init-rot-quat-center 0 0 0 1 --robot-init-rot-rpy-range 0 0 1 0 0 1 0 0 1
+
+python simpler_env/main_inference.py --policy-model openvla --ckpt-path "/path/to/tpo_model" \
+  --robot widowx --policy-setup widowx_bridge \
+  --control-freq 5 --sim-freq 500 --max-episode-steps 100 \
+  --env-name StackGreenCubeOnYellowCubeBakedTexInScene-v0 --scene-name bridge_table_1_v1 \
+  --rgb-overlay-path ./ManiSkill2_real2sim/data/real_inpainting/bridge_real_eval_1.png \
+  --robot-init-x 0.147 0.147 1 --robot-init-y 0.028 0.028 1 --obj-variation-mode episode --obj-episode-range 0 20 \
+  --robot-init-rot-quat-center 0 0 0 1 --robot-init-rot-rpy-range 0 0 1 0 0 1 0 0 1
+
+python simpler_env/main_inference.py --policy-model openvla --ckpt-path "/path/to/tpo_model" \
+  --robot widowx --policy-setup widowx_bridge \
+  --control-freq 5 --sim-freq 500 --max-episode-steps 100 \
+  --env-name PutSpoonOnTableClothInScene-v0 --scene-name bridge_table_1_v1 \
+  --rgb-overlay-path ./ManiSkill2_real2sim/data/real_inpainting/bridge_real_eval_1.png \
+  --robot-init-x 0.147 0.147 1 --robot-init-y 0.028 0.028 1 --obj-variation-mode episode --obj-episode-range 0 20 \
+  --robot-init-rot-quat-center 0 0 0 1 --robot-init-rot-rpy-range 0 0 1 0 0 1 0 0 1
+
+python simpler_env/main_inference.py --policy-model openvla --ckpt-path "/path/to/tpo_model" \
+  --robot widowx_sink_camera_setup --policy-setup widowx_bridge \
+  --control-freq 5 --sim-freq 500 --max-episode-steps 100 \
+  --env-name PutEggplantInBasketScene-v0 --scene-name bridge_table_1_v2 \
+  --rgb-overlay-path ./ManiSkill2_real2sim/data/real_inpainting/bridge_sink.png \
+  --robot-init-x 0.127 0.127 1 --robot-init-y 0.06 0.06 1 --obj-variation-mode episode --obj-episode-range 0 20 \
+  --robot-init-rot-quat-center 0 0 0 1 --robot-init-rot-rpy-range 0 0 1 0 0 1 0 0 1
+
+
+```
 
 ### LIBERO
 #### LIBERO Setup
