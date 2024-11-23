@@ -230,7 +230,7 @@ def run_maniskill2_eval_single_episode(
     num_fail=0
     failure_attempts=0
 
-    while 'success' not in episode_results or 'failure' not in episode_results or (num_fail+num_success)<5:
+    while ('success' not in episode_results or 'failure' not in episode_results or (num_fail+num_success)<5)  and (num_fail+num_success<=10):
 
         obs, reset_info = env.reset(options=env_reset_options)
         # for long-horizon environments, we check if the current subtask is the final subtask
