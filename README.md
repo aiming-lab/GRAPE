@@ -89,7 +89,9 @@ To LoRA fine-tune on a different dataset, you can download the dataset from our 
 
 #### In Simpler-Env
 
-
+Our data collection in Simpler-Env is embedded in Simpler-Env evaluation. 
+What you should do is overwrite ./Simpler-env/simpler_env/evaluation/maniskill2_evaluator.py by ./Data Collection/maniskill2_evaluator.py
+Then you can refer [**Simpler-Env**](*simpler-env) to run.
 
 #### In LIBERO
 
