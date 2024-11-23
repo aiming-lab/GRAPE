@@ -77,7 +77,7 @@ Now, launch the LoRA TPO script, as shown below.
 
 For details about chosen_traj and rejected_traj, You can refer  [**Datasets**](#datasets) . 
 
-To LoRA fine-tune on a different dataset, you can download the dataset from our repo(URL TBD).
+To TPO-LoRA on a sample dataset, you can download the dataset from our repo(URL TBD).
 
 
 
@@ -106,12 +106,6 @@ Our data collection in LIBERO is embedded in LIBERO evaluation, too. You can col
 1. Overwrite experiments/robot/libero/run_libero_eval.py with ./Data Collection/libero_data_collect.py.
 2. Overwrite the modeling_prismatic.py in your tpo-model's folder with./Data Collection/modeling_prismatic.py.
 3. Then you can refer to [**LIBERO**](#libero) for running.
-
-
-### Data Processing
-
-
-
 
 
 ## Evaluating GRAPE
