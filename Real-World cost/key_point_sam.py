@@ -168,7 +168,7 @@ if __name__ == "__main__":
     # predictor = SAM2ImagePredictor(build_sam2(model_cfg, checkpoint))
 
     # with torch.inference_mode(), torch.autocast("cuda", dtype=torch.bfloat16):
-    #     image = Image.open('/home/joel/projects/kaiyuan/GRAPE/output_image.png').convert("RGB")
+    #     image = Image.open('output_image.png').convert("RGB")
     #     predictor.set_image(image)
     #     masks, _, _ = predictor.predict()
     #     masks = masks.transpose(1, 2, 0)
