@@ -75,7 +75,7 @@ Now, launch the LoRA TPO script, as shown below.
   --save_steps 1000
 ```
 
-For details about chosen_traj and rejected_traj, You can refer xxxxxxxx. 
+For details about chosen_traj and rejected_traj, You can refer | [**Datasets**](#datasets) |. 
 
 To LoRA fine-tune on a different dataset, you can download the dataset from our repo(URL TBD).
 
@@ -83,8 +83,15 @@ To LoRA fine-tune on a different dataset, you can download the dataset from our 
 
 ## Datasets
 
+**To support RLDS format datasets, we designed our dataset in a special way. Specifically, when we built the chosen_traj and rejected_traj datasets, we ensured that their trajectories were paired one-to-one. That is, the nth trajectory data in chosen_traj corresponds to the nth trajectory data in rejected_traj, and they are from the same task with consistent initial state.**
+
+### datasets collection
+
+#### In Simpler-Env
 
 
+
+#### In LIBERO
 
 
 
