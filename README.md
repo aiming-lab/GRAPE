@@ -55,7 +55,7 @@ training is `finetune.py`.
 Below we show an example of how you can train the main OpenVLA-SFT checkpoint ([`openvla-7b`](https://huggingface.co/openvla/openvla-7b))
 via LoRA-TPO. Here we use a single A100 GPU with 80 GB VRAM. (Attention: We only support batchsize=1 and single-GPU training now, which means each batch has a pair of trajectories. We will support more settings and fully training in the future)
 
-Now, launch the LoRA TPO script, as shown below. 
+Now, launch the TPO-LoRA script, as shown below. 
 
 ```bash
   torchrun --standalone --nnodes=1 --nproc-per-node 1 finetune.py \
@@ -83,7 +83,7 @@ To TPO-LoRA on a sample dataset, you can download the dataset from our repo(URL 
 
 ## Datasets
 
-**To support RLDS format datasets, we designed our dataset in a special way. Specifically, when we built the chosen_traj and rejected_traj datasets, we ensured that their trajectories were paired one-to-one. That is, the nth trajectory data in chosen_traj corresponds to the nth trajectory data in rejected_traj, and they are from the same task with consistent initial state.**
+**To support RLDS format datasets, we designed our dataset in a special way. Specifically, when we built the chosen_traj and rejected_traj datasets, we ensured that their trajectories were paired one-to-one. That is, the nth trajectory data in chosen_traj corresponds to the nth trajectory data in rejected_traj, and they are from the same task with consistent initial state. We will release scripts to construct RLDS datasets for TPO in the future**
 
 ### Datasets Collection
 
