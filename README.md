@@ -100,7 +100,9 @@ Our data collection in Simpler-Env is embedded in Simpler-Env evaluation. You ca
 3. Then you can refer to [**Simpler-Env**](#simpler-env) for running.
 
 
-For preference generation, the relevant code could be found in /Data Collection/maniskill2_evaluator.py. The final GCPG reward of a trajectory will be shown in its filename. You can rank these trajectories in a task based on the GCPG reward. It is highly recommanded that you should modify **beta** and **threshold** for your experiments. The GCPG reward works well when $$R_{self}$$, $$R_{ext}$$ and $$I_{success}$$ contribute comparably to the final reward value.
+For preference generation, the relevant code could be found in /Data Collection/maniskill2_evaluator.py. The final GCPG reward of a trajectory will be shown in its filename. You can rank these trajectories in a task based on the GCPG reward. 
+
+It is **highly recommanded** that you should modify **beta** and **threshold** for your experiments. The GCPG reward works well when $$R_{self}$$, $$R_{ext}$$ and $$I_{success}$$ contribute comparably to the final reward value.
 
 
 
