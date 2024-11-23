@@ -85,20 +85,32 @@ To LoRA fine-tune on a different dataset, you can download the dataset from our 
 
 **To support RLDS format datasets, we designed our dataset in a special way. Specifically, when we built the chosen_traj and rejected_traj datasets, we ensured that their trajectories were paired one-to-one. That is, the nth trajectory data in chosen_traj corresponds to the nth trajectory data in rejected_traj, and they are from the same task with consistent initial state.**
 
-### datasets collection
+### Datasets Collection
 
 #### In Simpler-Env
 
 Our data collection in Simpler-Env is embedded in Simpler-Env evaluation. You can collect trajectory data by modifying Simpler-Env files.
 
-What you need to do is:
-1. Overwrite./Simpler-env/simpler_env/evaluation/maniskill2_evaluator.py with./Data Collection/maniskill2_evaluator.py.
+**What you need to do is:**
+1. Overwrite ./Simpler-env/simpler_env/evaluation/maniskill2_evaluator.py with./Data Collection/maniskill2_evaluator.py.
 2. Overwrite the modeling_prismatic.py in your tpo-model's folder with./Data Collection/modeling_prismatic.py.
 3. Then you can refer to [**Simpler-Env**](#simpler-env) for running.
 
 
 
 #### In LIBERO
+
+Our data collection in LIBERO is embedded in LIBERO evaluation, too. You can collect trajectory data by modifying LIBERO files.
+
+**What you need to do is:**
+1. Overwrite experiments/robot/libero/run_libero_eval.py with ./Data Collection/libero_data_collect.py.
+2. Overwrite the modeling_prismatic.py in your tpo-model's folder with./Data Collection/modeling_prismatic.py.
+3. Then you can refer to [**LIBERO**](#libero) for running.
+
+
+### Data Processing
+
+
 
 
 
