@@ -85,16 +85,23 @@ To TPO-LoRA on a sample dataset, you can download the dataset from our repo(URL 
 
 **To support RLDS format datasets, we designed our dataset in a special way. Specifically, when we built the chosen_traj and rejected_traj datasets, we ensured that their trajectories were paired one-to-one. That is, the nth trajectory data in chosen_traj corresponds to the nth trajectory data in rejected_traj, and they are from the same task with consistent initial state. We will release scripts to construct RLDS datasets for TPO in the future**
 
-### Datasets Collection
+### Datasets Collection and Preference Generation
+
+**Note that our Guided-cost Preference Generation is available in Simpler-Env. Support for the Real-World environment will be provided later.**
+
 
 #### In Simpler-Env
 
 Our data collection in Simpler-Env is embedded in Simpler-Env evaluation. You can collect trajectory data by modifying Simpler-Env files.
 
-**What you need to do is:**
+**What you need to do for data collection is:**
 1. Overwrite ./Simpler-env/simpler_env/evaluation/maniskill2_evaluator.py with./Data Collection/maniskill2_evaluator.py.
 2. Overwrite the modeling_prismatic.py in your tpo-model's folder with./Data Collection/modeling_prismatic.py.
 3. Then you can refer to [**Simpler-Env**](#simpler-env) for running.
+
+
+For preference generation, the relevant code could be found in /Data Collection/maniskill2_evaluator.py. The final GCPG reward of a trajectory will be shown in its filename. You can rank these trajectories in a task based on the GCPG reward. It is highly recommanded that you should modify **beta** and **threshold** for your experiments. The GCPG reward works well when R~self~, R~ext~ and I~success~ contribute comparably to the final reward value.
+
 
 
 
