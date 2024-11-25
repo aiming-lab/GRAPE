@@ -17,7 +17,7 @@ This repository provides the official PyTorch implementation of the following pa
 > [Dieter Fox](https://homes.cs.washington.edu/~fox/)<sup>2</sup>,
 > [Huaxiu Yao](https://www.huaxiuyao.io/)<sup>1</sup>
 >
-> <sup>1</sup>UNC Chapel-Hill, <sup>2</sup>University of Washington 
+> <sup>1</sup>UNC Chapel-Hill, <sup>2</sup>University of Washington, 
 <sup>3</sup>University of Chicago <br>
 > <sub>*</sup> Equal contribution
  
