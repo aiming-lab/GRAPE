@@ -4,6 +4,22 @@
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.2.0-EE4C2C.svg?style=for-the-badge&logo=pytorch)](https://pytorch.org/get-started/locally/)
 [![Python](https://img.shields.io/badge/python-3.10-blue?style=for-the-badge)](https://www.python.org)
 [![License](https://img.shields.io/github/license/TRI-ML/prismatic-vlms?style=for-the-badge)](LICENSE)
+
+This repository provides the official PyTorch implementation of the following paper:
+> [**GRAPE: Generalizing Robot Policy via Preference Alignment**]() <br>
+> [Zijian Zhang](https://zzj1111.github.io/)<sup>1,\*</sup>,
+> [Kaiyuan Zheng](https://openreview.net/profile?id=~Kaiyuan_Zheng1)<sup>2,\*</sup>,
+> [Zhaorun Chen](https://billchan226.github.io/) <sup>3,\*</sup>,
+> [Joel Jang](https://joeljang.github.io/) <sup>2</sup>,
+> [Yi Li](https://yili.vision/)<sup>2</sup>,
+> [Chaoqi Wang](https://alecwangcq.github.io/)<sup>3</sup>,
+> [Mingyu Ding](https://dingmyu.github.io/)<sup>1</sup>,
+> [Dieter Fox](https://homes.cs.washington.edu/~fox/)<sup>2</sup>,
+> [Huaxiu Yao](https://www.huaxiuyao.io/)<sup>1</sup>
+>
+> <sup>1</sup>UNC Chapel-Hill, <sup>2</sup>University of Washington 
+<sup>3</sup>University of Chicagon <br>
+> <sub>*</sup> Equal contribution
  
 [**Installation**](#installation) | [**Training VLA model via TPO-LoRA**](#training-vla-model-via-tpo-lora) | [**Datasets**](#datasets) | [**Evaluating GRAPE**](#evaluating-grape) | [**Project Website**](https://openvla.github.io/)
 
