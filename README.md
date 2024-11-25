@@ -18,7 +18,7 @@ This repository provides the official PyTorch implementation of the following pa
 > [Huaxiu Yao](https://www.huaxiuyao.io/)<sup>1</sup>
 >
 > <sup>1</sup>UNC Chapel-Hill, <sup>2</sup>University of Washington 
-<sup>3</sup>University of Chicagon <br>
+<sup>3</sup>University of Chicago <br>
 > <sub>*</sup> Equal contribution
  
 [**Installation**](#installation) | [**Training VLA model via TPO-LoRA**](#training-vla-model-via-tpo-lora) | [**Datasets**](#datasets) | [**Evaluating GRAPE**](#evaluating-grape) | [**Project Website**](https://openvla.github.io/)
