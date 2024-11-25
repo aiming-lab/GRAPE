@@ -9,8 +9,8 @@ This repository provides the official PyTorch implementation of the following pa
 > [**GRAPE: Generalizing Robot Policy via Preference Alignment**]() <br>
 > [Zijian Zhang](https://zzj1111.github.io/)<sup>1,\*</sup>,
 > [Kaiyuan Zheng](https://openreview.net/profile?id=~Kaiyuan_Zheng1)<sup>2,\*</sup>,
-> [Zhaorun Chen](https://billchan226.github.io/) <sup>3,\*</sup>,
-> [Joel Jang](https://joeljang.github.io/) <sup>2</sup>,
+> [Zhaorun Chen](https://billchan226.github.io/)<sup>3,\*</sup>,
+> [Joel Jang](https://joeljang.github.io/)<sup>2</sup>,
 > [Yi Li](https://yili.vision/)<sup>2</sup>,
 > [Chaoqi Wang](https://alecwangcq.github.io/)<sup>3</sup>,
 > [Mingyu Ding](https://dingmyu.github.io/)<sup>1</sup>,
