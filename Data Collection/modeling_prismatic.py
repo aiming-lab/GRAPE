@@ -521,10 +521,8 @@ class OpenVLAForActionPrediction(PrismaticForConditionalGeneration):
             **kwargs
         )
 
-        # 获取生成的tokens和logits
         generated_ids = outputs.sequences
         scores = outputs.scores
-        print(generated_ids)
         log_probs = []
         for i, score in enumerate(scores):
             # softmax to get probabilities
@@ -535,11 +533,11 @@ class OpenVLAForActionPrediction(PrismaticForConditionalGeneration):
             token_log_prob = log_prob[0, generated_ids[0, len(input_ids[0]) + i]].item()
             log_probs.append(token_log_prob)
 
-        # 打印生成的token和对应的log概率
+
         total_log_prob = sum(log_probs)
         overall_probability = np.exp(total_log_prob)
 
-        print("Overall probability:", overall_probability)
+        #print("Overall probability:", overall_probability)
         self.p=overall_probability
         #generated_ids = self.generate(input_ids, max_new_tokens=self.get_action_dim(unnorm_key), **kwargs, )
         # Extract predicted action tokens and translate into (normalized) continuous actions
