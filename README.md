@@ -4,7 +4,8 @@
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.2.0-EE4C2C.svg?style=for-the-badge&logo=pytorch)](https://pytorch.org/get-started/locally/)
 [![Python](https://img.shields.io/badge/python-3.10-blue?style=for-the-badge)](https://www.python.org)
 [![License](https://img.shields.io/github/license/TRI-ML/prismatic-vlms?style=for-the-badge)](LICENSE)
-[![Static Badge](https://img.shields.io/badge/Website-URL-000000)(https://grape-vla.github.io/)
+![Static Badge](https://img.shields.io/badge/Website-URL-000000?logoSize=amg&link=https%3A%2F%2Fgrape-vla.github.io%2F)
+
 This repository provides the official PyTorch implementation of the following paper:
 > [**GRAPE: Generalizing Robot Policy via Preference Alignment**]() <br>
 > [Zijian Zhang](https://zzj1111.github.io/)<sup>1,\*</sup>,
