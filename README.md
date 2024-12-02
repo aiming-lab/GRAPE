@@ -273,10 +273,13 @@ python experiments/robot/libero/run_libero_eval.py \
 If you find our code or models useful in your work, please cite [our paper](https://arxiv.org/abs/):
 
 ```bibtex
-@article{zhang24grape,
-    title={OpenVLA: An Open-Source Vision-Language-Action Model},
-    author={{Moo Jin} Kim and Karl Pertsch and Siddharth Karamcheti and Ted Xiao and Ashwin Balakrishna and Suraj Nair and Rafael Rafailov and Ethan Foster and Grace Lam and Pannag Sanketi and Quan Vuong and Thomas Kollar and Benjamin Burchfiel and Russ Tedrake and Dorsa Sadigh and Sergey Levine and Percy Liang and Chelsea Finn},
-    journal = {arXiv preprint arXiv:2406.09246},
-    year={2024}
-} 
+@misc{zhang2024grape,
+      title={GRAPE: Generalizing Robot Policy via Preference Alignment}, 
+      author={Zijian Zhang and Kaiyuan Zheng and Zhaorun Chen and Joel Jang and Yi Li and Chaoqi Wang and Mingyu Ding and Dieter Fox and Huaxiu Yao},
+      year={2024},
+      eprint={2411.19309},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2411.19309}, 
+}
 ```
