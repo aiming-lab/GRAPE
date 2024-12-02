@@ -270,7 +270,7 @@ python experiments/robot/libero/run_libero_eval.py \
 
 #### Citation
 
-If you find our code or models useful in your work, please cite [our paper](https://arxiv.org/abs/):
+If you find our code or models useful in your work, please cite [our paper](https://arxiv.org/abs/2411.19309):
 
 ```bibtex
 @misc{zhang2024grape,
