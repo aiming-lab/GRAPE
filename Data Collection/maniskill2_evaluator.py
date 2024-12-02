@@ -224,7 +224,7 @@ def run_maniskill2_eval_single_episode(
     num_fail=0
     failure_attempts=0
 
-    while 'success' not in episode_results or 'failure' not in episode_results or (num_fail+num_success)<5:
+    while (('success' not in episode_results or 'failure' not in episode_results) or (num_fail+num_success)<=5) and (num_fail+num_success)<=10:
 
         obs, reset_info = env.reset(options=env_reset_options)
         # for long-horizon environments, we check if the current subtask is the final subtask
@@ -241,8 +241,7 @@ def run_maniskill2_eval_single_episode(
         task_dir = os.path.join("./results", task_description)
         os.makedirs(task_dir, exist_ok=True)
 
-        # 为每个episode创建一个单独的文件夹
-        episode_dir = os.path.join(task_dir, f"episode_{obj_episode_id}")  # 使用 episode_index + 1 使编号从1开始
+        episode_dir = os.path.join(task_dir, f"episode_{obj_episode_id}")  
         os.makedirs(episode_dir, exist_ok=True)
 
         # Initialize logging
@@ -266,7 +265,7 @@ def run_maniskill2_eval_single_episode(
         'path_cost': [0,0,0],
             }
         alpha=[1,1,1]
-        beta=[1,1,1]
+        beta=[0.01,0.01,0.01]
         threshold=[ [20,40,2],
                     [0,5,2],
                     [0,10,2] ]      # Note that you should modify these parameters for your task. These parameters vary significantly in different tasks.
@@ -296,10 +295,6 @@ def run_maniskill2_eval_single_episode(
                     env.advance_to_next_subtask()
 
 
-
-
-
-
             # step the environment
             obs, reward, done, truncated, info = env.step(
                 np.concatenate([action["world_vector"], action["rot_axangle"], action["gripper"]]),
@@ -316,7 +311,7 @@ def run_maniskill2_eval_single_episode(
             elif(info['is_src_obj_grasped']==True and info['consecutive_grasp']==True and info["src_on_target"]== False):
                 stage=3
             keypoints=[np.array(source_pose.p),np.array(tar_pose.p)]
-            print(obs_pose,keypoints)
+           # print(obs_pose,keypoints)
             cost_step,cost_dict,stage=cal_cost(end_effector=obs_pose,keypoints=keypoints,stage=stage,info=info)
             cost+=cost_step
 
