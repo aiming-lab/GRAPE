@@ -1,9 +1,10 @@
 # GRAPE: Generalizing Robot Policy via Preference Alignment 
-[![arXiv](https://img.shields.io/badge/arXiv-2411.19309-df2a2a.svg?style=for-the-badge)](https://arxiv.org/abs/2411.19309)
-[![HF Models](https://img.shields.io/badge/%F0%9F%A4%97-Models-yellow?style=for-the-badge)](https://huggingface.co/ZijianZhang/OpenVLA-7B-GRAPE-Simpler)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.2.0-EE4C2C.svg?style=for-the-badge&logo=pytorch)](https://pytorch.org/get-started/locally/)
-[![Python](https://img.shields.io/badge/python-3.10-blue?style=for-the-badge)](https://www.python.org)
-[![License](https://img.shields.io/github/license/TRI-ML/prismatic-vlms?style=for-the-badge)](LICENSE)
+[![Project Page](https://img.shields.io/badge/Project-Page-Green)](https://grape-vla.github.io/)
+[![arXiv](https://img.shields.io/badge/Paper-Arxiv-red)](https://arxiv.org/pdf/2411.19309)
+[![HF Models](https://img.shields.io/badge/HF-Models-yellow)](https://huggingface.co/ZijianZhang/OpenVLA-7B-GRAPE-Simpler)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Faiming-lab%2FGRAPE&count_bg=%23DF0D21&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitor&edge_flat=false)](https://hits.seeyoufarm.com)
+[![GitHub Stars](https://img.shields.io/github/stars/aiming-lab/GRAPE?style=social)](https://github.com/aiming-lab/GRAPE/stargazers)
+[![License](https://img.shields.io/badge/License-MIT-g.svg)](LICENSE)
 
 
 This repository provides the official PyTorch implementation of the following paper:
@@ -99,11 +100,11 @@ To TPO-LoRA on a sample dataset, you can download the dataset from our repo(URL 
 
 ## Datasets
 
-**To support RLDS format datasets, we designed our dataset in a special way. Specifically, when we built the chosen_traj and rejected_traj datasets, we ensured that their trajectories were paired one-to-one. That is, the nth trajectory data in chosen_traj corresponds to the nth trajectory data in rejected_traj, and they are from the same task with consistent initial state. We will release scripts to construct RLDS datasets for TPO in the future**
+We have carefully designed our dataset to support the RLDS dataset format. Specifically, we ensured the trajectories were paired one-to-one when we built the chosen_traj and rejected_traj datasets. That is, the nth trajectory data in chosen_traj corresponds to the nth trajectory data in rejected_traj, and they are from the same task with the consistent initial state. We will release scripts to construct RLDS datasets for TPO in the future.
 
 ### Datasets Collection and Preference Generation
 
-**Note that our Guided-cost Preference Generation is available in Simpler-Env. Support for the Real-World environment will be provided later.**
+Note that our Guided-cost Preference Generation is available in Simpler-Env. Support for the Real-World environment will be provided later.
 
 
 #### In Simpler-Env
