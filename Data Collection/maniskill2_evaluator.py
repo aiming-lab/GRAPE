@@ -268,7 +268,7 @@ def run_maniskill2_eval_single_episode(
         beta=[0.01,0.01,0.01]
         threshold=[ [20,40,2],
                     [0,5,2],
-                    [0,10,2] ]      # Note that you should modify these parameters for your task. These parameters vary significantly in different tasks.
+                    [0,10,2] ]      # Note that you should modify these parameters for your task. These parameters vary significantly in different tasks. 
         success_score=0
         inner_score=1        
         done_counter = 0
@@ -375,7 +375,10 @@ def run_maniskill2_eval_single_episode(
           final_traj_score_2=0.01*math.log(inner_score)+(external_score_2)+5*success_score
         episode_stats = info.get("episode_stats", {})
        # print("f_2:",final_traj_score_2)
-        print("R_self:",inner_score,"R_ext:",external_score_2,"I_success:",success_score)
+        
+        print("R_self:",inner_score,"R_ext:",external_score_2,"I_success:",success_score) #Note that a good setting 
+
+        
         if success == 'failure':
 
             failure_attempts += 1  
