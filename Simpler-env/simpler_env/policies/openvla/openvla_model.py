@@ -96,7 +96,7 @@ class OpenVLAInference:
 
         # predict action (7-dof; un-normalize for bridgev2)
         inputs = self.processor(prompt, image).to("cuda:0", dtype=torch.bfloat16)
-        raw_actions = self.vla.predict_action(**inputs, unnorm_key=self.unnorm_key, do_sample=False)[None]
+        raw_actions = self.vla.predict_action(**inputs, unnorm_key=self.unnorm_key, do_sample=True)[None]
         # print(f"*** raw actions {raw_actions} ***")
 
         raw_action = {
