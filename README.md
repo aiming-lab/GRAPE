@@ -23,7 +23,7 @@ This repository provides the official PyTorch implementation of the following pa
 <sup>3</sup>University of Chicago <br>
 > <sub>*</sup> Equal contribution
  
-[**Installation**](#installation) | [**Training VLA model via TPO-LoRA**](#training-vla-model-via-tpo-lora) | [**Datasets**](#datasets) | [**Evaluating GRAPE**](#evaluating-grape) | [**Project Website**](https://openvla.github.io/)
+[**Installation**](#installation) | [**Training VLA model via TPO-LoRA**](#training-vla-model-via-tpo-lora) | [**Datasets**](#datasets) | [**Evaluating GRAPE**](#evaluating-grape) | [**Project Website**](https://grape-vla.github.io/)
 
 
 <hr style="border: 2px solid gray;"></hr>
