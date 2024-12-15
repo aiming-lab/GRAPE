@@ -69,7 +69,7 @@ If you run into any problems during the installation process, please file a GitH
 In this section, we discuss training OpenVLA model via Trajectory-wise Preference Optimization(TPO). The main script for LoRA
 training is `finetune.py`. 
 
-Below we show an example of how you can train the main OpenVLA-SFT checkpoint ([`openvla-7b`]((https://huggingface.co/ZijianZhang/OpenVLA-7B-SFT-Simpler)))
+Below we show an example of how you can train the main OpenVLA-SFT checkpoint [`openvla-7b`]((https://huggingface.co/ZijianZhang/OpenVLA-7B-SFT-Simpler))
 via LoRA-TPO. Here we use a single A100 GPU with 80 GB VRAM. (Attention: We only support batchsize=1 and single-GPU training now, which means each batch has a pair of trajectories. We will support more settings and fully training in the future)
 
 Now, launch the TPO-LoRA script, as shown below. 
