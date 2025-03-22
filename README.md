@@ -100,7 +100,7 @@ To TPO-LoRA on a sample dataset, you can download the dataset from our repo(URL 
 
 ## Datasets
 
-We have carefully designed our dataset to support the RLDS dataset format. Specifically, we ensured the trajectories were paired one-to-one when we built the chosen_traj and rejected_traj datasets. That is, the nth trajectory data in chosen_traj corresponds to the nth trajectory data in rejected_traj, and they are from the same task with the consistent initial state. We will release scripts to construct RLDS datasets for TPO in the future.
+We have carefully designed our dataset to support the RLDS dataset format. **Specifically, we ensured the trajectories were paired one-to-one when we built the chosen_traj and rejected_traj datasets. That is, the nth trajectory data in chosen_traj corresponds to the nth trajectory data in rejected_traj, and they are from the same task with the consistent initial state.** We will release scripts to construct RLDS datasets for TPO in the future.
 
 ### Datasets Collection and Preference Generation
 
@@ -132,6 +132,17 @@ Our data collection in LIBERO is embedded in LIBERO evaluation, too. You can col
 1. Overwrite experiments/robot/libero/run_libero_eval.py with ./Data Collection/libero_data_collect.py.
 2. Overwrite the modeling_prismatic.py in your tpo-model's folder with./Data Collection/modeling_prismatic.py.
 3. Then you can refer to [**LIBERO**](#libero) for running.
+
+### Datasets Construction
+
+Our RLDS Dataset Conversion is based on the repo from OpenVLA team: https://github.com/kpertsch/rlds_dataset_builder
+
+To convert the npy file to RLDS file which could be used for TPO:
+1. Follow the instruction in https://github.com/kpertsch/rlds_dataset_builder, complete relevent installation and modify file names.
+2. Replace the code in example_dataset/example_dataset_dataset_builder.py by the code of our rlds_convert.py
+3. Then you will get RLDS dataset you need.
+
+Note that the chosen dataset and the rejected dataset should be converted **seperately**.
 
 
 ## Evaluating GRAPE
