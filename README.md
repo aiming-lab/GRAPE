@@ -100,7 +100,7 @@ To TPO-LoRA on a sample dataset, you can download the dataset from our repo(URL 
 
 ## Datasets
 
-We have carefully designed our dataset to support the RLDS dataset format. **Specifically, we ensured the trajectories were paired one-to-one when we built the chosen_traj and rejected_traj datasets. That is, the nth trajectory data in chosen_traj corresponds to the nth trajectory data in rejected_traj, and they are from the same task with the consistent initial state.** We will release scripts to construct RLDS datasets for TPO in the future.
+We have carefully designed our dataset to support the RLDS dataset format. **Specifically, we ensured the trajectories were paired one-to-one when we built the chosen_traj and rejected_traj datasets. That is, the nth trajectory data in chosen_traj corresponds to the nth trajectory data in rejected_traj, and they are from the same task with the consistent initial state.**
 
 ### Datasets Collection and Preference Generation
 
