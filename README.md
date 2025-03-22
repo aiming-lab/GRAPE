@@ -94,8 +94,6 @@ Now, launch the TPO-LoRA script, as shown below.
 
 For details about chosen_traj and rejected_traj, You can refer  [**Datasets**](#datasets) . 
 
-To TPO-LoRA on a sample dataset, you can download the dataset from our repo(URL TBD).
-
 
 
 ## Datasets
@@ -190,6 +188,8 @@ cd ..
 pip install -e .
 ```
 #### Run Simpler-Env
+
+Note that if you want to eval the SFT model we released. The unnorm_key in Simpler-env/simpler_env/policies/openvla/openvla_model.py should be set as "bridge_orig", which aligns with OpenVLA's setting.
 
 ```bash
 python simpler_env/main_inference.py --policy-model openvla --ckpt-path "/path/to/tpo_model" \
