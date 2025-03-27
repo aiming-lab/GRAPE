@@ -1,18 +1,22 @@
 from typing import Iterator, Tuple, Any
-
+import re
 import glob
 import numpy as np
 import tensorflow as tf
 import tensorflow_datasets as tfds
 import tensorflow_hub as hub
+import os
+#optional
+# tfds.core.utils.gcs_utils._is_gcs_disabled = True
+# os.environ['NO_GCE_CHECK'] = 'true'
 
 
-class ExampleDataset(tfds.core.GeneratorBasedBuilder):
+class chosenDataset(tfds.core.GeneratorBasedBuilder):
     """DatasetBuilder for example dataset."""
 
     VERSION = tfds.core.Version('1.0.0')
     RELEASE_NOTES = {
-      '1.0.0': 'Initial release.',
+        '1.0.0': 'Initial release.',
     }
 
     def __init__(self, *args, **kwargs):
@@ -26,26 +30,14 @@ class ExampleDataset(tfds.core.GeneratorBasedBuilder):
                 'steps': tfds.features.Dataset({
                     'observation': tfds.features.FeaturesDict({
                         'image': tfds.features.Image(
-                            shape=(64, 64, 3),
+                            shape=(224, 224, 3),
                             dtype=np.uint8,
                             encoding_format='png',
                             doc='Main camera RGB observation.',
-                        ),
-                        'wrist_image': tfds.features.Image(
-                            shape=(64, 64, 3),
-                            dtype=np.uint8,
-                            encoding_format='png',
-                            doc='Wrist camera RGB observation.',
-                        ),
-                        'state': tfds.features.Tensor(
-                            shape=(10,),
-                            dtype=np.float32,
-                            doc='Robot state, consists of [7x robot joint angles, '
-                                '2x gripper position, 1x door opening angle].',
                         )
                     }),
                     'action': tfds.features.Tensor(
-                        shape=(10,),
+                        shape=(7,),
                         dtype=np.float32,
                         doc='Robot action, consists of [7x joint velocities, '
                             '2x gripper velocities, 1x terminate episode].',
@@ -96,17 +88,19 @@ class ExampleDataset(tfds.core.GeneratorBasedBuilder):
 
     def _generate_examples(self, path) -> Iterator[Tuple[str, Any]]:
         """Generator of examples for each split."""
+
         ############### build data inorder to get the episode number#########
         def numerical_sort(value):
 
             filename = os.path.basename(value)
             numbers = re.findall(r'\d+', filename)
             return int(numbers[0]) if numbers else -1
-############### build data inorder to get the episode number#########  
+
+        ############### build data inorder to get the episode number#########
 
         def _parse_example(episode_path):
             # load raw data --> this should change for your dataset
-            data = np.load(episode_path, allow_pickle=True)     # this is a list of dicts in our case
+            data = np.load(episode_path, allow_pickle=True)  # this is a list of dicts in our case
 
             # assemble episode --> here we're assuming demos so we set reward to 1 at the end
             episode = []
@@ -145,7 +139,7 @@ class ExampleDataset(tfds.core.GeneratorBasedBuilder):
         # for smallish datasets, use single-thread parsing
         for idx, episode_path in enumerate(episode_paths):
             try:
-                sample=_parse_example(episode_path)
+                sample = _parse_example(episode_path)
                 yield idx, sample
             except:
                 print(f'Error parsing: {episode_path}')
